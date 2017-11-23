@@ -1,0 +1,91 @@
+$color_orange: #e8603c
+$color_white: #fff
+$color_black: #616161
+$color_gray: #f1f1f1
+$transition: 0.5s
+
+body
+  font-family: 'Roboto', sans-serif
+
+a
+  text-decoration: none
+  color: inherit
+  &:hover,
+  &:focus
+    text-decoration: none
+    color: $color_orange
+
+p
+  font-size: 12px
+  line-height: 18px
+  color: $color_black
+
+li
+  list-style: none
+
+img
+  max-width: 100%
+
+.row
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-between
+
+.column
+  flex-direction: column
+
+.container
+  margin: 0 auto
+  max-width: 1170px
+
+.section
+  padding: 100px 0
+  position: relative
+  &__title
+    z-index: -1
+    width: max-content
+    max-width: 100%
+    text-align: right
+    top: 50%
+    right: 65px
+    position: absolute
+    .title
+      margin: 0
+      color: $color_gray
+      font-size: 7vw
+      font-weight: bold
+      text-transform: uppercase
+      position: relative
+      &:before
+        content: ''
+        position: absolute
+        background-color: $color_gray
+        width: 100%
+        height: 1px
+        bottom: 0
+        left: 50px
+
+.btn_black
+  display: inline-block
+  border: 1px solid $color_black
+  line-height: 45px
+  height: 45px
+  color: $color_black
+  width: 250px
+  text-align: center
+  font-size: 18px
+  text-transform: uppercase
+  transition: $transition
+  &:hover
+    transition: $transition
+    border-color: $color_white
+    position: relative
+    &:before
+      content: ''
+      position: absolute
+      background-color: $color_gray
+      width: 100%
+      height: 1px
+      bottom: 0
+      left: 50px
