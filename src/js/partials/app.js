@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+jQuery( document ).ready(function() {
 
     // Portfolio
 
@@ -11,7 +11,7 @@ $( document ).ready(function() {
             $('html, body').animate({
                 scrollTop: target.offset().top
             }, 500);
-        }
+        }cd
 
     });
 
