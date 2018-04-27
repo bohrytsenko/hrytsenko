@@ -1,33 +1,81 @@
 .header
   position: relative
-  &__title
-    position: absolute
+  z-index: 1
+  background: $color_dark_blue
+  background-attachment: fixed
+  background-size: cover
+  .container
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 100vh
+  &__menu
+    display: flex
+    justify-content: center
+    position: fixed
+    top: 0
     width: 100%
-    top: 50%
-    left: 0
+    max-width: 100%
+    z-index: 1
+    a
+      i
+        font-size: 20px
+        font-weight: 100
+        color: $color_white
+        &:nth-child(2)
+          display: none
+  &__title
+    width: 100%
     .title
       width: max-content
       margin: 0 auto
       color: $color_gray
-      font-size: 7vw
+      font-size: 4vw
       font-weight: bold
       text-transform: uppercase
       text-align: center
       position: relative
-      &:before
-        content: ''
-        position: absolute
-        background-color: $color_gray
-        width: 100%
-        height: 1px
-        bottom: 0
-        left: 50px
   &__wrapper
     position: relative
-    height: 100vh
     display: flex
     flex-direction: column
     justify-content: center
+  &__fixed
+    position: fixed
+    top: 20px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    a
+      display: inline-flex
+      flex-direction: column
+      margin-bottom: 15px
+      color: $color_white
+      font-weight: bold
+      text-transform: uppercase
+      img
+        width: 150px
+      &:nth-child(2)
+        justify-content: center
+        align-items: center
+        max-width: 100%
+        padding: 10px 20px
+        box-sizing: border-box
+        background-color: black
+        transition: 0.5s
+        cursor: pointer
+        &:first-child
+          margin-left: 0
+        &:last-child
+          margin-right: 0
+        &:hover
+          transition: 0.5s
+          transform: translateY(-3px)
+          background-color: #616161
+        a
+          color: #fff
+          text-transform: uppercase
 
 .header_name
   display: flex
@@ -36,22 +84,18 @@
   align-items: center
   width: max-content
   margin: 0 auto
+  color: white
   span
     font-size: 80px
     text-transform: uppercase
-  position: relative
-  &:before
-    content: ''
-    position: absolute
-    background-color: $color_black
-    width: 100%
-    height: 1px
-    bottom: 0
-    left: 50px
+    position: relative
+    &:first-child
+      transform: rotate(90deg)
 
 .overlay
   z-index: 10
-  background-color: $color_black
+  background-color: $color_dark_blue
+  background-attachment: fixed
   position: fixed
   top: 0
   right: 0
@@ -72,34 +116,134 @@
   position: relative
   width: max-content
   margin: 0 auto
-  &:before
-    content: ''
-    position: absolute
-    background-color: $color_white
-    width: 100%
-    height: 1px
-    bottom: 0
-    left: 50px
+
+// logo
+
+.logo
+  transform: rotate(90deg)
+  a
+    color: $color_white
+    font-size: 80px
+    text-transform: uppercase
+    font-family: 'Oswald-Bold'
+
+// Menu
+
+.nav_item
+  display: flex
+  align-items: center
+  justify-content: space-around
+  width: 100%
+  height: 100vh
+  position: absolute
+  background-color: #fff
+  opacity: 0
+  transform: rotate(90deg)
+  transition: $transition
+  z-index: 1
+  &__active
+    opacity: 1
+    transform: rotate(0)
+    transition: $transition
+    display: flex
+    flex-direction: column
+    justify-content: center
+  ul
+    padding: 0
+    margin: 0
+    li
+      margin-bottom: 10px
+      a
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        img
+          width: 100px
+
+.header_menu
+  background-color: $color_dark_blue
+  .container
+    height: auto
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+  &__active
+    background-color: #fff0
+    .logo
+      a
+        color: $color_dark_blue
+    .header_nav
+      a
+        i
+          color: $color_dark_blue
+          display: none
+          &:nth-child(2)
+            display: block
+
+.socials
+  ul
+    padding: 0
+    margin: 0
+    display: flex
+    li
+      margin: 0 20px
+      position: relative
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 30px
+      height: 30px
+      border: 1px solid $color_dark_blue
+      border-radius: 50px
+      transition: $transition
+      &:before
+        position: absolute
+        content: ''
+        opacity: 0
+        left: 50%
+        width: 0
+        height: 100%
+        border: 1px solid $color_dark_blue
+        border-radius: 50px
+        background-color: $color_dark_blue
+        transition: $transition
+        z-index: -1
+      &:hover
+        transition: $transition
+        color: $color_white
+        a
+          i
+            color: $color_white
+        &:before
+          width: 100%
+          left: 0
+          opacity: 1
+      a
+        i
+          color: $color_dark_blue
+          font-size: 20px
 
 // Mouse scroll
 
 .icon
   position: absolute
   bottom: 20px
-  width: 100%
-
+  z-index: 1
 .mouse__icon
   position: relative
   .mouse
     width: 18px
     height: 28px
-    background: $color_black
+    background: $color_white
     border-radius: 20px
     position: relative
     margin: 0 auto 3px auto
+
     &:after
       content: ""
-      background: $color_white
+      background: $color_black
       width: 4px
       height: 6px
       position: absolute
@@ -112,8 +256,8 @@
     width: 6px
     height: 6px
     display: block
-    border-bottom: 2px solid $color_black
-    border-right: 2px solid $color_black
+    border-bottom: 2px solid $color_white
+    border-right: 2px solid $color_white
     transform: rotate(45deg)
     position: relative
     margin: 0 auto
@@ -139,3 +283,4 @@
     opacity: 1
   100%
     opacity: 0
+
