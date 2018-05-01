@@ -2,8 +2,12 @@ $color_orange: #e8603c
 $color_white: #fff
 $color_black: #616161
 $color_dark_blue: #323a45
+$color_light_blue: #b2c6cd
 $color_gray: #f1f1f1
 $transition: 0.5s
+
+*
+  box-sizing: border-box
 
 body
   font-family: 'Oswald-Bold'
@@ -15,11 +19,21 @@ a
   &:focus
     text-decoration: none
 
+p
+  font-family: 'Montserrat-Regular'
+  color: $color_dark_blue
+  font-size: 14px
+  line-height: 1.4
+
 li
   list-style: none
 
 img
   max-width: 100%
+
+.title,
+p
+  margin: 0
 
 .column
   flex-direction: column
@@ -33,17 +47,22 @@ img
   max-width: 100%
 
 .section
-  padding: 100px 0
+  padding: 150px 0 0 0
   position: relative
   &__title
     z-index: -1
     width: max-content
     max-width: 100%
     text-align: right
-    top: 50%
-    left: 65px
+    top: 5px
+    left: 10px
     position: absolute
-    .title
+    ul
+      padding: 0
+      margin: 0
+    .title,
+    a
+      font-family: 'Oswald-Bold'
       margin: 0
       color: $color_gray
       font-size: 7vw
@@ -51,12 +70,11 @@ img
       text-transform: uppercase
       position: relative
 
-.btn_dark
+.btn_dark,
+.btn_white
   display: inline-block
-  border: 1px solid $color_dark_blue
   line-height: 45px
   height: 45px
-  color: $color_black
   width: 250px
   text-align: center
   font-size: 18px
@@ -70,9 +88,14 @@ img
     left: 50%
     width: 0
     height: 100%
-    background-color: $color_dark_blue
     transition: $transition
     z-index: -1
+
+.btn_dark
+  border: 1px solid $color_dark_blue
+  color: $color_black
+  &:before
+    background-color: $color_dark_blue
   &:hover
     transition: $transition
     color: $color_white
@@ -80,3 +103,68 @@ img
       width: 100%
       left: 0
       opacity: 1
+
+.btn_white
+  border: 1px solid $color_white
+  color: $color_white
+  &:before
+    background-color: $color_white
+  &:hover
+    transition: $transition
+    color: $color_dark_blue
+    i
+      color: $color_dark_blue
+    &:before
+      width: 100%
+      left: 0
+      opacity: 1
+
+.btn_send
+  font-family: 'Oswald-Light'!important
+  display: flex!important
+  justify-content: center
+  align-items: center
+  height: 45px!important
+  width: 250px!important
+  text-align: center
+  font-size: 18px!important
+  text-transform: uppercase!important
+  transition: $transition!important
+  position: relative!important
+  line-height: 1
+  margin: 0 auto!important
+  background-color: $color_dark_blue!important
+  border: 1px solid $color_dark_blue!important
+  color: $color_white!important
+  &:before
+    position: absolute
+    content: ''
+    opacity: 0
+    left: 50%
+    width: 0
+    height: 100%
+    transition: $transition!important
+    background-color: $color_dark_blue!important
+    z-index: -1
+  &:hover
+    transition: $transition
+    color: $color_dark_blue!important
+    z-index: 2
+    &:before
+      width: 100% !important
+      background-color: $color_white!important
+      left: 0
+      opacity: 1
+
+.wpforms-form
+  label
+    text-align: left
+  .wpforms-field-sublabel
+    font-size: 10px!important
+  input,
+  textarea
+    border-color: $color_dark_blue!important
+    transition: $transition
+    &:focus
+      transition: $transition
+      background-color: rgba(238, 238, 238, 0.73)!important

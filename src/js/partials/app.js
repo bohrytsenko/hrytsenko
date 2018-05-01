@@ -6,7 +6,15 @@ jQuery( document ).ready(function() {
         e.preventDefault();
         var o = $(this).attr("href");
         $("html, body").animate({
-            scrollTop: $(o).offset().top
+            scrollTop: $(o).offset().top - 100
+        }, 1000);
+    });
+
+    $(".menu a").on("click", function(e) {
+        e.preventDefault();
+        var o = $(this).attr("href");
+        $("html, body").animate({
+            scrollTop: $(o).offset().top - 100
         }, 1000);
     });
 
@@ -18,7 +26,23 @@ jQuery( document ).ready(function() {
         $('.nav_item').toggleClass('nav_item__active');
     });
 
+    $('.menu a').on('click', function () {
+        $('body').toggleClass('overflow');
+        $('.header_menu').toggleClass('header_menu__active');
+        $('.nav_item').toggleClass('nav_item__active');
+    });
 
+    // Add class form
+
+    $('.contact_btn a').on('click', function () {
+        $('body').toggleClass('overflow');
+        $('.contact_form').addClass('contact_form__active');
+    });
+
+    $('.contact_form__close').on('click', function () {
+        $('body').toggleClass('overflow');
+        $('.contact_form').removeClass('contact_form__active');
+    });
 
     // Add class on scroll
 
@@ -65,6 +89,43 @@ jQuery( document ).ready(function() {
     var t2 = new TimelineLite();
     t2.staggerFromTo('.header__title .title', 8, { opacity: 0}, { opacity: 1}, 0.2);
 
+    var t3 = new TimelineLite();
+    t3.staggerFromTo('.thank_name span', 4, { opacity: 0}, { opacity: 1}, 0.2);
+    var t4 = new TimelineLite();
+    t4.staggerFromTo('.thank_name span:nth-child(2)', 2, { rotation: 180}, { rotation: 0}, 0.2);
+
+
+    $(".portfolio_item").each(function() {
+        var tl = new TimelineMax();
+        var img = $(this).find(".portfolio_image");
+
+        tl
+            .from(img, .2, {x: -200}, {x: 0}, .1);
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: this,  duration: 600,
+            triggerHook: 2
+        })
+            .setTween(tl)
+            .addTo(controller);
+    });
+
+    $(".section").each(function() {
+        var tl = new TimelineMax();
+        var img = $(this).find(".section__title");
+
+        tl
+            .from(img, .2, {opacity: 0}, {opacity: 1}, .1);
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: this,  duration: 600,
+            triggerHook: 2
+        })
+            .setTween(tl)
+            .addTo(controller);
+    });
+
+
 
     // Preloader
     (function() {
@@ -88,10 +149,6 @@ jQuery( document ).ready(function() {
 
         animateOut_2();
 
-        btn.onclick = function() {
-            animateIn();
-            setTimeout(animateOut_2, 2000);
-        };
 
     })();
 });

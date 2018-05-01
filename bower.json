@@ -11,7 +11,8 @@
     "swiper": "^3.4.2",
     "gsap": "^1.20.3",
     "scrollmagic": "^2.0.5",
-    "components-font-awesome": "^4.7.0"
+    "components-font-awesome": "^4.7.0",
+    "zooming": "^2.0.0"
   },
   "overrides": {
     "gsap": {

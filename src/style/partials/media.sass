@@ -1,12 +1,52 @@
 $r-768: 768px
-$r-936: 936px
-$r-980: 980px
+$r-992: 992px
 $r-1024: 1024px
 $r-1200: 1200px
 
-// break max-768
-@media only screen and (max-width: $r-1200)
-  .container
-    padding: 0 15px
-  .info_wrap__item:nth-child(2), .skills_info, .contacts_text
-    width: 550px
+body
+  // break max-768
+  @media only screen and (max-width: $r-768)
+    .header_item
+      &__name
+        span
+          font-size: 60px
+    .overlay-loader
+      font-size: 60px
+    .portfolio_item
+      flex-direction: column
+      &__image
+        margin-bottom: 50px
+      &:nth-child(even)
+        .portfolio_item__image
+          order: 1
+      &__image,
+      &__info
+        width: 100%
+    .portfolio_info
+      &__link
+        display: flex
+        justify-content: center
+    .blog
+      top: 110px
+    .btn_dark
+      &:hover
+        color: $color_dark_blue
+        &:before
+          display: none
+    .btn_white,
+    .btn_send
+      &:hover
+        color: $color_white!important
+        &:before
+          display: none
+    .contact_form
+      &__close
+        right: 15px
+
+
+  // break max-1200
+  @media only screen and (max-width: $r-1200)
+    .container
+      padding: 0 15px
+    .logo
+      padding: 0 0 15px 0

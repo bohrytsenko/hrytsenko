@@ -20,22 +20,48 @@
     z-index: 1
     a
       i
+        transition: $transition
         font-size: 20px
         font-weight: 100
         color: $color_white
         &:nth-child(2)
           display: none
+      &:hover
+        transition: $transition
+        i
+          transform: scale(1.1)
+          opacity: 0.7
   &__title
     width: 100%
     .title
       width: max-content
       margin: 0 auto
       color: $color_gray
-      font-size: 4vw
+      font-size: 3vw
       font-weight: bold
       text-transform: uppercase
       text-align: center
       position: relative
+  &__link
+    margin-top: 50px
+    a
+      display: flex
+      align-items: center
+      justify-content: center
+      color: $color_white
+      font-size: 18px
+      transition: $transition
+      &:hover
+        transition: $transition
+        i
+          left: 10px
+      i
+        position: absolute
+        left: 20px
+        font-size: 18px
+        color: $color_white
+        margin-right: 20px
+        transition: $transition
   &__wrapper
     position: relative
     display: flex
@@ -77,20 +103,19 @@
           color: #fff
           text-transform: uppercase
 
-.header_name
-  display: flex
-  flex-direction: row
-  justify-content: center
-  align-items: center
-  width: max-content
-  margin: 0 auto
-  color: white
-  span
-    font-size: 80px
-    text-transform: uppercase
-    position: relative
-    &:first-child
-      transform: rotate(90deg)
+.header_item
+  &__name
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: max-content
+    margin: 0 auto
+    color: white
+    span
+      font-size: 80px
+      text-transform: uppercase
+      position: relative
 
 .overlay
   z-index: 10
@@ -131,28 +156,42 @@
 
 .nav_item
   display: flex
+  flex-direction: column
   align-items: center
-  justify-content: space-around
+  justify-content: center
+  position: fixed
+  top: 0
   width: 100%
-  height: 100vh
-  position: absolute
-  background-color: #fff
   opacity: 0
-  transform: rotate(90deg)
-  transition: $transition
-  z-index: 1
+  left: -100%
+  height: 100vh
+  background-color: #fff
+  transition: 1s
+  z-index: -1
+  .menu,
+  .sub
+    li
+      margin-bottom: 20px
+      a
+        font-size: 24px
+        color: #323a45
+        font-family: 'Montserrat-Bold'
+        text-transform: uppercase
+        transition: $transition
+        &:hover
+          transition: $transition
+          opacity: 0.7
   &__active
+    width: 100%
+    left: 0
     opacity: 1
-    transform: rotate(0)
-    transition: $transition
-    display: flex
-    flex-direction: column
-    justify-content: center
+    transition: 1s
+    z-index: 1
   ul
     padding: 0
     margin: 0
     li
-      margin-bottom: 10px
+      margin-bottom: 20px
       a
         display: flex
         flex-direction: column
@@ -188,7 +227,7 @@
     margin: 0
     display: flex
     li
-      margin: 0 20px
+      margin: 0 10px
       position: relative
       display: flex
       justify-content: center
@@ -196,7 +235,6 @@
       width: 30px
       height: 30px
       border: 1px solid $color_dark_blue
-      border-radius: 50px
       transition: $transition
       &:before
         position: absolute
@@ -206,7 +244,6 @@
         width: 0
         height: 100%
         border: 1px solid $color_dark_blue
-        border-radius: 50px
         background-color: $color_dark_blue
         transition: $transition
         z-index: -1
@@ -230,7 +267,7 @@
 .icon
   position: absolute
   bottom: 20px
-  z-index: 1
+  z-index: 0
 .mouse__icon
   position: relative
   .mouse

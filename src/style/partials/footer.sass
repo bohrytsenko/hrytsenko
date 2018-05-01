@@ -1,0 +1,32 @@
+// Footer
+
+.footer
+  padding: 50px 0
+  background-color: $color_dark_blue
+  .container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+  &__logo
+    display: inline-flex
+  &__copyright
+    p
+      color: $color_white
+  &__socials
+    ul
+      li
+        &:hover
+          transition: $transition
+          opacity: 0.8
+        &:last-child
+          border: 0
+          width: 48px
+          &:hover
+            border: 0
+            &:before
+              display: none
+        a
+          i
+            color: $color_white
+            font-size: 20px
